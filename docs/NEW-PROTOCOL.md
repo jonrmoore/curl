@@ -11,7 +11,7 @@ So how do you proceed to add a new protocol and what are the requirements?
 
 ## No fixed set of requirements
 
-This document is an attempt to describe things to consider. There's no
+This document is an attempt to describe things to consider. There is no
 checklist of the twenty-seven things you need to cross off. We view the entire
 effort as a whole and then judge if it seems to be the right thing - for
 now. The more things that look right, fit our patterns and are done in ways
@@ -43,23 +43,29 @@ such, like we can view reading emails over POP3 as a downloading and sending
 emails over SMTP as an upload.
 
 If you cannot even shoehorn the protocol into a transfer focused view, then
-you're up for a tough argument.
+you are up for a tough argument.
 
 ### URL
 
-There should be a documented URL format. If there's an RFC for it there's no
+There should be a documented URL format. If there is an RFC for it there is no
 question about it but the syntax doesn't have to be a published RFC. It could
 be enough if it is already in use by other implementations.
 
 If you make up the syntax just in order to be able to propose it to curl, then
-you're in a bad place. URLs are designed and defined for interoperability.
+you are in a bad place. URLs are designed and defined for interoperability.
 There should at least be a good chance that other clients and servers can be
 implemented supporting the same URL syntax and work the same or similar way.
 
-URLs work on registered 'schemes'. There's a register of [all officially
+URLs work on registered 'schemes'. There is a register of [all officially
 recognized
 schemes](https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml). If
 your protocol is not in there, is it really a protocol we want?
+
+### Wide and public use
+
+The protocol shall already be used or have an expectation of getting used
+widely. Experimental protocols are better off worked on in experiments first,
+to prove themselves before they are adopted by curl.
 
 ## Code
 
@@ -75,8 +81,8 @@ must have the implementation get tested by CI jobs, torture tests and more.
 
 We've also experienced many times in the past how new implementations were
 brought to curl and immediately once the code had been merged, the originator
-vanished from the face of the earth. That's fine, but we need to take the
-necessary precautions so when it happens we're still fine.
+vanished from the face of the earth. That is fine, but we need to take the
+necessary precautions so when it happens we are still fine.
 
 Our test infrastructure is powerful enough to test just about every possible
 protocol - but it might require a bit of an effort to make it happen.
@@ -92,9 +98,9 @@ little easier!
 
 ## Don't compare
 
-We're constantly raising the bar and we're constantly improving the project. A
-lot of things we did in the past would not be acceptable if done today.
-Therefore, you might be tempted to use shortcuts or "hacks" you can spot
-other - existing - protocol implementations have used, but there's nothing to
-gain from that. The bar has been raised. Former "cheats" won't be tolerated
-anymore.
+We are constantly raising the bar and we are constantly improving the
+project. A lot of things we did in the past would not be acceptable if done
+today.  Therefore, you might be tempted to use shortcuts or "hacks" you can
+spot other - existing - protocol implementations have used, but there is
+nothing to gain from that. The bar has been raised. Former "cheats" won't be
+tolerated anymore.
